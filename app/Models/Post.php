@@ -13,6 +13,12 @@ class Post extends Model
     /** @use HasFactory<\Database\Factories\PostFactory> */
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'user_id',
+        'post_status_id',
+        'body',
+    ];
     // Relationships
     public function comments(): HasMany
     {

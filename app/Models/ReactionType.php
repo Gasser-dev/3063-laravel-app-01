@@ -9,4 +9,12 @@ class ReactionType extends Model
 {
     /** @use HasFactory<\Database\Factories\ReactionTypeFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'type',
+    ];
+    public function reactions(): HasMany
+    {
+        return $this->hasMany(Reaction::class);
+    }
 }

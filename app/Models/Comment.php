@@ -12,6 +12,11 @@ class Comment extends Model
     /** @use HasFactory<\Database\Factories\CommentFactory> */
     use HasFactory;
 
+    protected $fillable = [
+        'comment',
+        'user_id',
+        'post_id',
+    ];
     // Relationships
     public function post(): BelongsTo
     {
@@ -21,5 +26,13 @@ class Comment extends Model
     public function replies(): HasMany
     {
         return $this->hasMany(Reply::class);
+    }
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function reactions(): HasMany
+    {
+        return $this->hasMany(Reaction::class);
     }
 }
